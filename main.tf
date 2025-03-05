@@ -18,6 +18,7 @@ terraform {
 provider "azurerm" {
   features {}
 
-  # subscription_id is a secret variable configured in Terraform HCP
+  # subscription_id and tenant_id is a secret variable configured in Terraform HCP
   subscription_id = var.subscription_id
+  tenant_id       = var.tenant_id 
 }
