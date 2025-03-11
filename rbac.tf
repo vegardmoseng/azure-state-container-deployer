@@ -13,9 +13,11 @@ resource "azurerm_role_definition" "terraform_deployer" {
   permissions {
     actions     = [
         "Microsoft.Resources/subscriptions/resourceGroups/read",
-        "Microsoft.Resources/subscriptions/resourceGroups/write",    
+        "Microsoft.Resources/subscriptions/resourceGroups/write",  
     ]
-    not_actions = []
+    not_actions = [
+        "Microsoft.Resources/subscriptions/resourceGroups/delete", 
+    ]
   }
 
   assignable_scopes = [
