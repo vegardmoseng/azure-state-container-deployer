@@ -21,3 +21,9 @@ variable "terraform_deployer_role_name" {
   }))
   default = null
 }
+
+variable "end_date" {
+    type = string
+    description = "End date for the service principal password"
+    default = null
+}

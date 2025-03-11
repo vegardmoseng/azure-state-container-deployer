@@ -18,6 +18,11 @@ resource "azuread_application" "terraform_deployer" {
   }
 }
 
+resource "azuread_application_password" "terraform_deployer" {
+  application_id = azuread_application.terraform_deployer.id
+  end_date = var.end_date
+}
+
 resource "azuread_service_principal" "terraform_deployer" {
   client_id                    = azuread_application.terraform_deployer.client_id
   app_role_assignment_required = false
