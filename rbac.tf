@@ -13,10 +13,23 @@ resource "azurerm_role_definition" "terraform_deployer" {
   permissions {
     actions     = [
         "Microsoft.Resources/subscriptions/resourceGroups/read",
-        "Microsoft.Resources/subscriptions/resourceGroups/write",  
+        "Microsoft.Resources/subscriptions/resourceGroups/write",
+        "Microsoft.Storage/storageAccounts/read",
+        "Microsoft.Storage/storageAccounts/write",
+        "Microsoft.Storage/storageAccounts/listKeys/action",
+        "Microsoft.Storage/storageAccounts/blobServices/read",
+        "Microsoft.Storage/storageAccounts/blobServices/containers/read",
+        "Microsoft.Storage/storageAccounts/blobServices/containers/write",
+        "Microsoft.Storage/storageAccounts/fileServices/read",
+        "Microsoft.Storage/storageAccounts/fileServices/write",
+        "Microsoft.Storage/storageAccounts/fileServices/shares/read",
+        "Microsoft.Storage/storageAccounts/blobServices/write"
+        
     ]
     not_actions = [
-        "Microsoft.Resources/subscriptions/resourceGroups/delete", 
+        "Microsoft.Resources/subscriptions/resourceGroups/delete",
+        "Microsoft.Storage/storageAccounts/delete",
+        "Microsoft.Storage/storageAccounts/blobServices/containers/delete", 
     ]
   }
 
